@@ -27,14 +27,14 @@ function initialize(e){
   start();
 }
 
-function gifInit(){
+/*function gifInit(){
   var number = Math.floor(Math.random() * 11);
   var gif0 = urls[number];
   console.log(gif0);
   let root = document.documentElement;
   root.style.backgroundImage = "url("+gif0+")";
   document.style.backgroundColor = (0,0,0,0.2);
-}
+}*/
 
 
 

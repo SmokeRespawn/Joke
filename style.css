@@ -1,33 +1,68 @@
-#joke {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-/*
-body {
-  background-image : url("https://media.giphy.com/media/dC9DTdqPmRnlS/giphy.gif");
-  opacity : 0.75;
-}*/
-
-:root {
-  --urlgif;
-}
 body {
   height: 100vh;
   width: 100%;
   display: block;
   position: relative;
+  background: linear-gradient(90deg,#121126, #010119);
+  font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+  color: white;
 }
 
-body::after {
-  content: "";
-  /*background-image: url("https://media.giphy.com/media/3i7zenReaUuI0/giphy.gif");*/
-  opacity: 0.45;
-  top: 0;
-  left: 0;
+#header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#menu{
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+}
+
+/*.ghost{
+  width: 30%;
+}*/
+
+#liste{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width : 30%;
+  list-style: none;
+}
+
+#liste li{
+  transition: 0.2s;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+}
+
+#liste li:hover{
+  color : yellow;
+}
+
+#liste li:after {
+ background: none repeat scroll 0 0 transparent;
   bottom: 0;
-  right: 0;
+  content: "";
+  display: block;
+  height: 2px; /*epaisseur du soulignement*/
+  left: 50%;
   position: absolute;
-  z-index: -1;
+  background: yellow;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+#liste li:hover:after {
+  width: 100%;
+  left: 0;
 }
