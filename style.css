@@ -1,0 +1,33 @@
+#joke {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*
+body {
+  background-image : url("https://media.giphy.com/media/dC9DTdqPmRnlS/giphy.gif");
+  opacity : 0.75;
+}*/
+
+:root {
+  --urlgif;
+}
+body {
+  height: 100vh;
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+body::after {
+  content: "";
+  /*background-image: url("https://media.giphy.com/media/3i7zenReaUuI0/giphy.gif");*/
+  opacity: 0.45;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
