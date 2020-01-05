@@ -2,32 +2,64 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Rigole un peu</title>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>The One Man Joke</title>
   </head>
   <body>
-    <header id="header">
-      <h1>The One Man Joke</h1>
-      <nav id="menu">
-        <div class="burger_menu"></div>
-        <ul id="liste">
-          <li>Common</li>
-          <li>Programming</li>
-          <li>Dark</li>
-        </ul>
       </nav>
-    </header>
-    <div id="joke">
-      <p id="anyjoke"></p>
-      <button id="type" type="button" name="button">Joke Type</button>
-      <form id="ChooseType" action="index.html" method="post">
-        <option value="Any">Any</option>
-        <option value="Miscellaneous">Miscellaneous</option>
-        <option value="Programming">Programming</option>
-        <option value="Dark">Dark</option>
+      <header id="header">
+        <h1>The One Man Joke</h1>
+        <span id="cross" class="disparaitre"></span>
+        <div id="menu_ham" class="menu_hamburger afficher">
+          <span class="ham"></span>
+          <span class="ham"></span>
+          <span class="ham"></span>
+        </div>
+        <nav id="menu" class="disparaitre">
+          <ul id="liste">
+            <li>Présentation</li>
+            <li>Coup de ♥</li>
+            <li>Nos blagues</li>
+            <li>Poste ta blague</li>
+          </ul>
+        </nav>
+        <div class="middle">
+          <div class="mouse afficher"></div>
+        </div>
+      </header>
+      <div id="Presentation" data-aos="fade-up" data-aos-duration="3000">
+        <h1>Présentation</h1>
+        <p>Vous aimez l'humour et vous êtes bilingue ? Alors ce site est fait pour vous.
+          <b>The One Man Joke</b> est le site incontournable pour vous marrer et pour vous lâcher !
+          Que vous soyez plutôt humour de geek, salace ou bien humour noir nous vous proposerons plus d'une centaine de blagues qui vous permettront de faire rire votre oncle beauf lors des repas de famille.
+          <br/>
+          Avec <b>The One Man Joke</b> vous pouvez découvrir de nouvelles blagues mais aussi participer grâce à notre outil de création de blague.
+          Alors n'attendez plus, scrollez, rigolez, écrivez !</p>
+      </div>
+      <div id ="BestJoke" data-aos="fade-up" data-aos-duration="1500">
+        <h1>Notre coup de coeur</h1>
+        <div id="joke1" class="joke">
+          <h3>Top #1</h3>
+        </div>
+      </div>
+      <div class="programmingJoke">
+        <h1>Nos blagues sur la programmation</h1>
+        <div class="jokesP" id="jokeP"></div>
+      </div>
+      <div id="joke">
+        <p id="anyjoke"></p>
+        <button id="type" type="button" name="button">Joke Type</button>
+        <form id="ChooseType" action="index.html" method="post">
+          <select class="Categorie" name="Categorie">
+            <option value="Any">Any</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+            <option value="Programming">Programming</option>
+            <option value="Dark">Dark</option>
+        </select>
       </form>
     </div>
-    <script src="script.js"></script>
   </body>
+  <script src="script.js"></script>
 </html>

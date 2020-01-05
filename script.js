@@ -1,60 +1,178 @@
 var urlAny = "https://sv443.net/jokeapi/category/Any";
-var urls = ['https://media.giphy.com/media/O5NyCibf93upy/giphy.gif0',
-'https://media.giphy.com/media/ZqlvCTNHpqrio/giphy.gif',
-'https://media.giphy.com/media/GpyS1lJXJYupG/giphy.gif',
-'https://media.giphy.com/media/lQ1nXVifuLqyVAH2Gu/giphy.gif',
-'https://media.giphy.com/media/dC9DTdqPmRnlS/giphy.gif',
-'https://media.giphy.com/media/JmsG1PY1K94hyOa1v9/giphy.gif',
-'https://media.giphy.com/media/11uYyAmGgTWwGQ/giphy.gif',
-'https://media.giphy.com/media/Rgss7R0Ey0rAY/giphy.gif',
-'https://media.giphy.com/media/KcjxruOmio7bq/giphy.gif',
-'https://media.giphy.com/media/12Tt4U7hlXXaRa/giphy.gif',
-'https://media.giphy.com/media/gj0QdZ9FgqGhOBNlFS/giphy.gif',
-'https://media.giphy.com/media/3i7zenReaUuI0/giphy.gif'];
-/*
-fetch(urlAny)
-.then(data => {return data.json()})
-.then(response => {
-  console.log(response);
-})
-.catch(error => console.error("error"))*/
+var urlProgramming = "https://sv443.net/jokeapi/category/Programming";
+var urlMiscellaneous = "https://sv443.net/jokeapi/category/Miscellaneous";
+var urlDark = "https://sv443.net/jokeapi/category/Dark";
 
-const Joke_Type = document.getElementById("type");
-Joke_Type.addEventListener('click',initialize);
-Joke_Type.addEventListener('click',gifInit);
 
-function initialize(e){
-  start();
+function menu_afficher(){ //afficher le menu
+   var menu = document.getElementById("menu");
+   var menu_ham = document.getElementById("menu_ham");
+   var cross = document.getElementById('cross');
+
+   menu.classList.add('animation_slide'); //on ajoute la première animation
+   menu.classList.remove('animation_slide_reverse'); //on retire l'animation de fermeture qui va rester en tant que classe quand on aura fini de la faire
+   menu.classList.remove('disparaitre'); //on retire la classe disparaitre au menu
+   menu.classList.add('afficher'); //on ajoute la classe afficher au menu
+
+   cross.classList.add('afficher'); //on ajoute la classe afficher à la croix
+   cross.classList.remove('disparaitre'); //on ajoute la classe disparaitre à la croix
+
+   menu_ham.classList.add('disparaitre');//on ajoute la classe disparaitre au menu hamburger
 }
 
-/*function gifInit(){
-  var number = Math.floor(Math.random() * 11);
-  var gif0 = urls[number];
-  console.log(gif0);
-  let root = document.documentElement;
-  root.style.backgroundImage = "url("+gif0+")";
-  document.style.backgroundColor = (0,0,0,0.2);
-}*/
+var menu_ham = document.getElementById("menu_ham");
+  menu_ham.addEventListener('click',menu_afficher); //quand on clique surle burger on fait apparaitre le menu
+
+function menu_disparaitre(){
+  var menu = document.getElementById("menu");
+  var menu_ham = document.getElementById("menu_ham");
+  var cross = document.getElementById('cross');
+
+
+  menu.classList.add('animation_slide_reverse'); //on ajoute l'animation de fermeture
+
+
+  cross.classList.remove('afficher');
+  cross.classList.add('disparaitre');
+
+  menu_ham.classList.remove('disparaitre');
+  menu_ham.classList.add('afficher');
+
+
+}
+
+var cross = document.getElementById("cross");
+cross.addEventListener('click',menu_disparaitre);
 
 
 
-async function catchJoke() {
+async function catchJokeAny() {
   const response = await fetch(urlAny);
   return await response.json();
 }
 
+async function catchJokeProgramming() {
+  const response = await fetch(urlProgramming);
+  return await response.json();
+}
+
+async function catchJokeMiscellaneous() {
+  const response = await fetch(urlMiscellaneous);
+  return await response.json();
+}
+
+async function catchJokeDark() {
+  const response = await fetch(urlDark);
+  return await response.json();
+}
 
 async function start() {
-  const jsonJoke = await catchJoke();
+  const jsonJoke = await catchJokeAny();
   console.log(jsonJoke);
 
+  var nouvH4Sgl = document.createElement('h4');  //Je créer un nouvel élément h1
+  var nouvH4 = document.createElement('h4');  //Je créer un nouvel élément h1
+  var p = document.createElement('p'); //Je créer un nouvel élément h3
+  var cat = document.createElement('p'); //Je créer un nouvel élément h3
+
+  var A = document.createTextNode(jsonJoke.joke); //on remplit l'élément avec la variable
+  var B = document.createTextNode("(Q) "+jsonJoke.setup); //on remplit l'élément avec la variable
+  var C = document.createTextNode("(R) "+jsonJoke.delivery); //on remplit l'élément avec la variable
+  var Cat = document.createTextNode("Categorie : "+jsonJoke.category); //on remplit l'élément avec la variable
+
+  nouvH4Sgl.appendChild(A);
+  nouvH4.appendChild(B);
+  p.appendChild(C);
+  cat.appendChild(Cat);
+
+
+  var joke = document.getElementsByClassName('joke'); //Je récupère les éléments avec la classe joke
+  var joke1 = document.getElementById('joke1'); //Je récupère les éléments avec la classe joke
+
+  for (jokes of joke) {
+    jokes.classList.toggle('classJoke'); //Je parcours les éléments avec la classe joke et on ajoute la classe
+    }
+
   if (jsonJoke.type == "single") {
-    document.getElementById("anyjoke").innerHTML =
-    `<h1> ${jsonJoke.joke} </h1>`
+    joke1.appendChild(nouvH4Sgl);
+    joke1.appendChild(Cat);
+
   }
   else {
-    document.getElementById("anyjoke").innerHTML =
-    `<h1> ${jsonJoke.setup} </h1>
-    <h3> ${jsonJoke.delivery} </h3>`
+      joke1.appendChild(nouvH4);
+      joke1.appendChild(p);
+      joke1.appendChild(Cat);
   }
 }
+
+async function programmingJoke(){
+  const jsonJokeP = await catchJokeProgramming();
+  console.log(jsonJokeP);
+
+  var nouvH4Sgl = document.createElement('h4');  //Je créer un nouvel élément h1
+  var nouvH4 = document.createElement('h4');  //Je créer un nouvel élément h1
+  var p = document.createElement('p'); //Je créer un nouvel élément h3
+  var cat = document.createElement('p'); //Je créer un nouvel élément h3
+
+  var A = document.createTextNode(jsonJokeP.joke); //on remplit l'élément avec la variable
+  var B = document.createTextNode("(Q) "+jsonJokeP.setup); //on remplit l'élément avec la variable
+  var C = document.createTextNode("(R) "+jsonJokeP.delivery); //on remplit l'élément avec la variable
+  var Cat = document.createTextNode("Categorie : "+jsonJokeP.category); //on remplit l'élément avec la variable
+
+  nouvH4Sgl.appendChild(A);
+  nouvH4.appendChild(B);
+  p.appendChild(C);
+  cat.appendChild(Cat);
+
+
+  var jokesP = document.getElementsByClassName('jokesP'); //Je récupère les éléments avec la classe joke
+  var jokeP = document.getElementById('jokeP'); //Je récupère les éléments avec la classe joke
+
+  for (jokes of jokesP) {
+    jokes.classList.toggle('joke'); //Je parcours les éléments avec la classe joke et on ajoute la classe
+    }
+
+  if (jsonJokeP.type == "single") {
+    jokeP.appendChild(nouvH4Sgl);
+    jokeP.appendChild(Cat);
+
+  }
+  else {
+      jokeP.appendChild(nouvH4);
+      jokeP.appendChild(p);
+      jokeP.appendChild(Cat);
+  }
+}
+
+
+function initialize(e){
+  start();
+  programmingJoke();
+}
+
+  window.onload = initialize;
+
+  AOS.init({
+  // Global settings:
+  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+  initClassName: 'aos-init', // class applied after initialization
+  animatedClassName: 'aos-animate', // class applied on animation
+  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+  offset: 120, // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 400, // values from 0 to 3000, with step 50ms
+  easing: 'ease', // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: false, // whether elements should animate out while scrolling past them
+  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+});
+
+AOS.init();

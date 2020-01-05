@@ -1,39 +1,191 @@
 body {
-  height: 100vh;
-  width: 100%;
-  display: block;
-  position: relative;
-  background: linear-gradient(90deg,#121126, #010119);
+  background: linear-gradient(180deg,#000000, #080112);
+  background-color: lightgrey;
+  background-repeat: repeat;
   font: bold 14px/1.4 'Open Sans', arial, sans-serif;
   color: white;
+  height: 100%;
 }
 
+h1{
+  font-size: 220%;
+}
+
+h1:hover{
+  color : yellow;
+}
+
+h1:after {
+  content: "";
+  display: block;
+  height: 2px; /*epaisseur du soulignement*/
+  left: 50%;
+  position: relative;
+  background: yellow;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+  margin-top: 3%;
+}
+
+h1:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+/**********************************HEADER************************************/
 #header{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  height: 100vh;
+  width: 100%;
+  position: relative;
 }
 
+#header h1{
+  font-size: 220%;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
+
+#header h1:hover{
+  color : yellow;
+}
+
+#header h1::before{
+  content: "";
+  display: block;
+  height: 2px; /*epaisseur du soulignement*/
+  left: 0%;
+  position: relative;
+  background: yellow;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+  margin-bottom: 5%;
+}
+
+#header h1:hover::before {
+  width: 100%;
+  left: 50;
+}
+
+#header h1::after {
+  content: "";
+  display: block;
+  height: 2px; /*epaisseur du soulignement*/
+  left: 100%;
+  position: relative;
+  background: yellow;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+  margin-top: 5%;
+}
+
+#header h1:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+
+/**********************************MENU HAMBURGER************************************/
+.menu_hamburger{
+  margin-left: auto;
+  position: absolute;
+  top: 10%;
+  right: 3%;
+  z-index: 2;
+  transition: 0.2s;
+}
+
+.menu_hamburger:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+.menu_hamburger span{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: yellow;
+  border-radius: 3px;
+}
+
+/**********************************CROSS CLOSE************************************/
+#cross {
+   width: 33px;
+   height: 33px;
+   position: absolute;
+   top: 10%;
+   right: 3%;
+   transform:rotate(45deg);
+   z-index: 1;
+  transition: 0.2s;
+}
+
+#cross:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+#cross:before, #cross:after {
+  content: "";
+  position: absolute;
+  background: yellow;
+}
+
+#cross:before {
+  left: 50%;
+  width: 10%;
+  margin-left: -10%;
+  height: 100%;
+  border-radius: 3px;
+  transition: 0.2s;
+}
+
+#cross:after {
+  top: 50%;
+  height: 10%;
+  margin-top: -10%;
+  width: 100%;
+  border-radius: 3px;
+}
+
+/**********************************CLASSE AFFICHER ET DISPARAITRE************************************/
+
+.afficher{
+  opacity: 1;
+  display: block;
+}
+
+.disparaitre{
+  opacity: 0;
+  display: none;
+}
+
+/**********************************Menu de navigation************************************/
 #menu{
   display: flex;
   flex-direction: row;
   margin-left: auto;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: black;
 }
-
-/*.ghost{
-  width: 30%;
-}*/
 
 #liste{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   width : 30%;
   list-style: none;
+
 }
 
 #liste li{
@@ -50,7 +202,7 @@ body {
   color : yellow;
 }
 
-#liste li:after {
+#liste li::after {
  background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -62,7 +214,159 @@ body {
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
-#liste li:hover:after {
+
+#liste li:hover::after {
   width: 100%;
   left: 0;
+}
+
+/**********************************Souris + animation************************************/
+.middle{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%,50%);
+  z-index: -1;
+}
+
+.mouse{
+  width: 80px;
+  height: 140px;
+  border: 3px solid yellow;
+  border-radius: 60px;
+  transition: 0.2s;
+}
+
+.mouse::before{
+  content: '';
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 30px;
+  background: yellow;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 50%;
+  opacity: 1;
+  animation: mouse 2s infinite;
+}
+
+
+/**********************************Présentation************************************/
+
+#Presentation{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#Presentation h1{
+  font-size: 220%;
+}
+
+#Presentation p{
+  width: 50%;
+  text-align: justify;
+  line-height: 250%;
+  font-size: 120%;
+}
+
+
+
+/**********************************Meilleure blague************************************/
+
+#BestJoke{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+#BestJoke h3::after {
+  content: "";
+  display: block;
+  height: 2px; /*epaisseur du soulignement*/
+  left: 0;
+  position: relative;
+  background: yellow;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 100%;
+}
+
+/**********************************Classe de la div créée en js pour le top 1************************************/
+
+.joke{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid yellow;
+  border-radius: 20px;
+  padding: 5%;
+}
+
+.joke h4{
+  font-size: 140%;
+}
+
+.joke p{
+  font-size: 130%;
+  font-style: italic;
+}
+
+/**********************************Classe de la div créée en js pour le top 1************************************/
+
+.programmingJoke{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+
+/**********************************Animations************************************/
+
+
+.animation_slide{
+  animation:slide 0.2s cubic-bezier(0.17,0.67,0.83,0.67);
+  animation-fill-mode: both;
+}
+
+.animation_slide_reverse{
+  animation:slide_reverse 0.5s cubic-bezier(0.17,0.67,0.83,0.67);
+  animation-fill-mode: both;
+}
+
+@keyframes slide {
+  0%{
+    transform: translateX(+100%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide_reverse {
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes mouse {
+  0%{
+    opacity: 1;
+    top: 30px;
+  }
+  100%{
+    opacity: 0;
+    top: 120px;
+  }
 }
