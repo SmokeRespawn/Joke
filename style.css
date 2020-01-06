@@ -1,10 +1,10 @@
 body {
   background: linear-gradient(180deg,#000000, #080112);
   background-color: lightgrey;
-  background-repeat: repeat;
   font: bold 14px/1.4 'Open Sans', arial, sans-serif;
   color: white;
   height: 100%;
+  position: relative;
 }
 
 h1{
@@ -19,17 +19,21 @@ h1:after {
   content: "";
   display: block;
   height: 2px; /*epaisseur du soulignement*/
-  left: 50%;
+  left: 0;
   position: relative;
   background: yellow;
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
+  width: 100%;
   margin-top: 3%;
 }
 
-h1:hover:after {
-  width: 100%;
-  left: 0;
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.ancre{
+  height: 10vh;
 }
 
 /**********************************HEADER************************************/
@@ -220,6 +224,7 @@ h1:hover:after {
   left: 0;
 }
 
+
 /**********************************Souris + animation************************************/
 .middle{
   position: absolute;
@@ -281,10 +286,12 @@ h1:hover:after {
 #BestJoke{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #BestJoke h3::after {
@@ -298,7 +305,7 @@ h1:hover:after {
   width: 100%;
 }
 
-/**********************************Classe de la div créée en js pour le top 1************************************/
+/**********************************Classe pour les blagues************************************/
 
 .joke{
   display: flex;
@@ -317,17 +324,192 @@ h1:hover:after {
   font-style: italic;
 }
 
-/**********************************Classe de la div créée en js pour le top 1************************************/
+/**********************************Différentes blagues************************************/
 
 .programmingJoke{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.darkJoke{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.miscellaneousJoke{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**********************************Poste ta blague************************************/
+
+.jokeMaker{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.form label{
+  margin-bottom: 2%;
+  margin-right: 2%;
+  font-size: 120%;
+}
+
+.form label::after {
+  content: "";
+  display: block;
+  height: 2px; /*epaisseur du soulignement*/
+  left: 0;
+  position: relative;
+  background: yellow;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 100%;
 }
 
+.form textarea{
+  font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.form textarea:focus{
+  border:2px solid yellow;
+}
+
+.form textarea:hover{
+  transform: scale(1.01);
+}
+
+.spanForm{
+  width: 100%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.spanForm input{
+  border-radius: 8px;
+  font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+}
+
+.spanForm input:hover{
+  transform: scale(1.01);
+}
+
+.spanForm label{
+  margin-top: 1%;
+}
+
+.spanForm select{
+  margin-left: auto;
+  border-radius: 8px;
+  font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+  text-align: center;
+  transition: 0.1s;
+  color: grey;
+  background: none;
+}
+
+.spanForm select option{
+  background-color: #080112;
+}
+
+.spanForm select:hover{
+  cursor: pointer;
+  transform: scale(1.01);
+}
+
+.spanForm select:focus{
+  border: 2px solid yellow;
+  color: yellow;
+}
+
+
+#poster{
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  background: none;
+  color: grey;
+  padding: 1%;
+  font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+#poster:hover{
+  transform: scale(1.1);
+  background-color: yellow;
+  color: black;
+  border: 2px solid #080112;
+}
+
+.galerie_style{
+  margin-top: 5%;
+}
+
+.jokeUserClass{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid yellow;
+  border-radius: 20px;
+  padding: 5%;
+  margin-bottom: 5%;
+}
+
+.jokeUserClass p{
+  font-size: 140%;
+}
+
+.jokeUserClass h5{
+  font-size: 110%;
+}
+
+.jokeUserClass h3{
+  font-style: italic;
+}
+
+
+/**********************************Flèche************************************/
+
+.fleche{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: red;
+}
 
 /**********************************Animations************************************/
 

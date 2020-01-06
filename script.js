@@ -44,6 +44,56 @@ function menu_disparaitre(){
 var cross = document.getElementById("cross");
 cross.addEventListener('click',menu_disparaitre);
 
+function jokeMaker(){
+  var textArea = document.getElementById("tellJokeArea");
+  var jokeTxt = textArea.value;
+
+  var select = document.getElementById('selectType');
+  var option = select.value;
+
+  var auteur = document.getElementById('utilisateur');
+  var auteurTxt = auteur.value;
+
+  var p = document.createElement('p');
+  var h5 = document.createElement('h5');
+  var h3 = document.createElement('h3');
+  var divContainer = document.createElement('div');
+
+  var joke = document.createTextNode(jokeTxt);
+  var categorie = document.createTextNode(option);
+  var auteurJoke = document.createTextNode(auteurTxt);
+
+  var jokesUsers = document.getElementsByClassName('jokesUsers');
+
+
+  p.appendChild(joke);
+  h5.appendChild(categorie);
+  h3.appendChild(auteurJoke);
+
+  divContainer.appendChild(p);
+  divContainer.appendChild(h5);
+  divContainer.appendChild(auteurJoke);
+  divContainer.classList.add('jokeUserClass');
+
+  if (jokeTxt == "") {
+    alert("Vous n'avez rien écrit boloss");
+  }
+  else {
+    for (jokeUser of jokesUsers) {
+      jokeUser.appendChild(divContainer);
+    }
+  }
+}
+
+function effacer(){ //effacer le contenu du texte area
+  document.getElementById("tellJokeArea").value = "";
+  document.getElementById("utilisateur").value = "";
+}
+
+var bouton = document.getElementById('poster');
+bouton.addEventListener('click',jokeMaker);
+bouton.addEventListener('click',effacer);
+
 
 
 async function catchJokeAny() {
@@ -144,10 +194,89 @@ async function programmingJoke(){
   }
 }
 
+async function darkJoke(){
+  const jsonJokeD = await catchJokeDark();
+  console.log(jsonJokeD);
+
+  var nouvH4Sgl = document.createElement('h4');  //Je créer un nouvel élément h1
+  var nouvH4 = document.createElement('h4');  //Je créer un nouvel élément h1
+  var p = document.createElement('p'); //Je créer un nouvel élément h3
+  var cat = document.createElement('p'); //Je créer un nouvel élément h3
+
+  var A = document.createTextNode(jsonJokeD.joke); //on remplit l'élément avec la variable
+  var B = document.createTextNode("(Q) "+jsonJokeD.setup); //on remplit l'élément avec la variable
+  var C = document.createTextNode("(R) "+jsonJokeD.delivery); //on remplit l'élément avec la variable
+  var Cat = document.createTextNode("Categorie : "+jsonJokeD.category); //on remplit l'élément avec la variable
+
+  nouvH4Sgl.appendChild(A);
+  nouvH4.appendChild(B);
+  p.appendChild(C);
+  cat.appendChild(Cat);
+
+
+  var jokesD = document.getElementsByClassName('jokesD'); //Je récupère les éléments avec la classe joke
+  var jokeD = document.getElementById('jokeD'); //Je récupère les éléments avec la classe joke
+
+  for (jokes of jokesD) {
+    jokes.classList.toggle('joke'); //Je parcours les éléments avec la classe joke et on ajoute la classe
+    }
+
+  if (jsonJokeD.type == "single") {
+    jokeD.appendChild(nouvH4Sgl);
+    jokeD.appendChild(Cat);
+
+  }
+  else {
+      jokeD.appendChild(nouvH4);
+      jokeD.appendChild(p);
+      jokeD.appendChild(Cat);
+  }
+}
+
+async function miscellaneous(){
+  const jsonJokeM = await catchJokeMiscellaneous();
+  console.log(jsonJokeM);
+
+  var nouvH4Sgl = document.createElement('h4');  //Je créer un nouvel élément h1
+  var nouvH4 = document.createElement('h4');  //Je créer un nouvel élément h1
+  var p = document.createElement('p'); //Je créer un nouvel élément h3
+  var cat = document.createElement('p'); //Je créer un nouvel élément h3
+
+  var A = document.createTextNode(jsonJokeM.joke); //on remplit l'élément avec la variable
+  var B = document.createTextNode("(Q) "+jsonJokeM.setup); //on remplit l'élément avec la variable
+  var C = document.createTextNode("(R) "+jsonJokeM.delivery); //on remplit l'élément avec la variable
+  var Cat = document.createTextNode("Categorie : "+jsonJokeM.category); //on remplit l'élément avec la variable
+
+  nouvH4Sgl.appendChild(A);
+  nouvH4.appendChild(B);
+  p.appendChild(C);
+  cat.appendChild(Cat);
+
+
+  var jokesM = document.getElementsByClassName('jokesM'); //Je récupère les éléments avec la classe joke
+  var jokeM = document.getElementById('jokeM'); //Je récupère les éléments avec la classe joke
+
+  for (jokes of jokesM) {
+    jokes.classList.toggle('joke'); //Je parcours les éléments avec la classe joke et on ajoute la classe
+    }
+
+  if (jsonJokeM.type == "single") {
+    jokeM.appendChild(nouvH4Sgl);
+    jokeM.appendChild(Cat);
+
+  }
+  else {
+      jokeM.appendChild(nouvH4);
+      jokeM.appendChild(p);
+      jokeM.appendChild(Cat);
+  }
+}
 
 function initialize(e){
   start();
   programmingJoke();
+  darkJoke();
+  miscellaneous();
 }
 
   window.onload = initialize;
