@@ -6,6 +6,9 @@ body {
   height: 100%;
   position: relative;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 h1{
   font-size: 220%;
@@ -324,6 +327,27 @@ a{
   font-style: italic;
 }
 
+.otherJoke{
+  margin-top: 2%;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  background: none;
+  color: white;
+  padding: 1%;
+  font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+  border: 2px solid white;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.otherJoke:hover{
+  background-color: yellow;
+  border: 2px solid #080112;
+  color: black;
+  transform: scale(0.9);
+}
+
 /**********************************Différentes blagues************************************/
 
 .programmingJoke{
@@ -410,6 +434,10 @@ a{
   transform: scale(1.01);
 }
 
+#utilisateur:focus{
+  border: 2px solid yellow;
+}
+
 .spanForm{
   width: 100%;
   margin-top: 10%;
@@ -470,7 +498,7 @@ a{
 }
 
 #poster:hover{
-  transform: scale(1.1);
+  transform: scale(0.9);
   background-color: yellow;
   color: black;
   border: 2px solid #080112;
@@ -504,11 +532,21 @@ a{
 
 /**********************************Flèche************************************/
 
-.fleche{
+#img_svg{
   position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: red;
+  bottom: 1%;
+  right: 5%;
+  height: 126px;
+  width: 126px;
+  transition: 0.2s;
+}
+
+#img_svg:hover{
+  transform: scale(1.1);
+}
+
+#img_svg line{
+  animation: arrow 2s infinite;
 }
 
 /**********************************Animations************************************/
@@ -550,5 +588,17 @@ a{
   100%{
     opacity: 0;
     top: 120px;
+  }
+}
+
+@keyframes arrow {
+  0{
+    height: 126px;
+  }
+  50%{
+    height: 63px;
+  }
+  100%{
+    height: 0px !important;
   }
 }

@@ -21,7 +21,7 @@ function menu_afficher(){ //afficher le menu
 }
 
 var menu_ham = document.getElementById("menu_ham");
-  menu_ham.addEventListener('click',menu_afficher); //quand on clique surle burger on fait apparaitre le menu
+menu_ham.addEventListener('click',menu_afficher); //quand on clique surle burger on fait apparaitre le menu
 
 function menu_disparaitre(){
   var menu = document.getElementById("menu");
