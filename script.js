@@ -9,6 +9,9 @@ function menu_afficher(){ //afficher le menu
    var menu_ham = document.getElementById("menu_ham");
    var cross = document.getElementById('cross');
 
+   var h1 = document.getElementById("title");
+   h1.classList.add('disparaitre');
+
    menu.classList.add('animation_slide'); //on ajoute la première animation
    menu.classList.remove('animation_slide_reverse'); //on retire l'animation de fermeture qui va rester en tant que classe quand on aura fini de la faire
    menu.classList.remove('disparaitre'); //on retire la classe disparaitre au menu
@@ -27,6 +30,10 @@ function menu_disparaitre(){
   var menu = document.getElementById("menu");
   var menu_ham = document.getElementById("menu_ham");
   var cross = document.getElementById('cross');
+
+  var h1 = document.getElementById("title");
+  h1.classList.remove('disparaitre');
+  h1.classList.add('afficher');
 
 
   menu.classList.add('animation_slide_reverse'); //on ajoute l'animation de fermeture
@@ -64,6 +71,7 @@ function jokeMaker(){
   var auteurJoke = document.createTextNode(auteurTxt);
 
   var jokesUsers = document.getElementsByClassName('jokesUsers');
+  var containerJokesUsers = document.getElementById('containerJokesUsers');
 
 
   p.appendChild(joke);
@@ -78,10 +86,9 @@ function jokeMaker(){
   if (jokeTxt == "") {
     alert("Vous n'avez rien écrit boloss");
   }
-  else {
-    for (jokeUser of jokesUsers) {
-      jokeUser.appendChild(divContainer);
-    }
+  else { //Affiche les balgues créait de la plus récente à la plus ancienne
+    var theFirstChild = containerJokesUsers.firstChild; //Je récupère la référence du premier enfant (même si il est null)
+    containerJokesUsers.insertBefore(divContainer,theFirstChild); //J'ajoute la div que je viens de créer avant le premier enfant de la div
   }
 }
 
@@ -93,7 +100,6 @@ function effacer(){ //effacer le contenu du texte area
 var bouton = document.getElementById('poster');
 bouton.addEventListener('click',jokeMaker);
 bouton.addEventListener('click',effacer);
-
 
 
 async function catchJokeAny() {
@@ -159,6 +165,10 @@ async function programmingJoke(){
   const jsonJokeP = await catchJokeProgramming();
   console.log(jsonJokeP);
 
+  var jokesP = document.getElementsByClassName('jokesP'); //Je récupère les éléments avec la classe joke
+  var jokeP = document.getElementById('jokeP'); //Je récupère les éléments avec la classe joke
+
+
   var nouvH4Sgl = document.createElement('h4');  //Je créer un nouvel élément h1
   var nouvH4 = document.createElement('h4');  //Je créer un nouvel élément h1
   var p = document.createElement('p'); //Je créer un nouvel élément h3
@@ -175,11 +185,8 @@ async function programmingJoke(){
   cat.appendChild(Cat);
 
 
-  var jokesP = document.getElementsByClassName('jokesP'); //Je récupère les éléments avec la classe joke
-  var jokeP = document.getElementById('jokeP'); //Je récupère les éléments avec la classe joke
-
   for (jokes of jokesP) {
-    jokes.classList.toggle('joke'); //Je parcours les éléments avec la classe joke et on ajoute la classe
+    jokes.classList.add('joke'); //Je parcours les éléments avec la classe joke et on ajoute la classe
     }
 
   if (jsonJokeP.type == "single") {
@@ -272,12 +279,73 @@ async function miscellaneous(){
   }
 }
 
+
 function initialize(e){
   start();
   programmingJoke();
   darkJoke();
   miscellaneous();
 }
+
+function refreshP(){
+  var joke = document.getElementById('jokeP');
+
+  joke.classList.remove("joke");
+
+  var firstChild = joke.firstChild;
+    joke.removeChild(firstChild);
+
+  var newFirstChild = joke.firstChild;
+    joke.removeChild(newFirstChild);
+
+  var newNewFirstChild = joke.lastChild;
+    joke.removeChild(newNewFirstChild);
+
+}
+
+function refreshD(){
+  var joke = document.getElementById('jokeD');
+
+  joke.classList.remove("joke");
+
+  var firstChild = joke.firstChild;
+    joke.removeChild(firstChild);
+
+  var newFirstChild = joke.firstChild;
+    joke.removeChild(newFirstChild);
+
+  var newNewFirstChild = joke.lastChild;
+    joke.removeChild(newNewFirstChild);
+
+}
+
+function refreshM(){
+  var joke = document.getElementById('jokeM');
+
+  joke.classList.remove("joke");
+
+  var firstChild = joke.firstChild;
+    joke.removeChild(firstChild);
+
+  var newFirstChild = joke.firstChild;
+    joke.removeChild(newFirstChild);
+
+  var newNewFirstChild = joke.lastChild;
+    joke.removeChild(newNewFirstChild);
+
+}
+
+var buttonProgrammingJoke = document.getElementById("buttonProgrammingJoke");
+buttonProgrammingJoke.addEventListener('click',refreshP);
+buttonProgrammingJoke.addEventListener('click',programmingJoke);
+
+var buttonDarkJoke = document.getElementById("buttonDarkJoke");
+buttonDarkJoke.addEventListener('click',refreshD);
+buttonDarkJoke.addEventListener('click',darkJoke);
+
+var buttonMJoke = document.getElementById("buttonMJoke");
+buttonMJoke.addEventListener('click',refreshM);
+buttonMJoke.addEventListener('click',miscellaneous);
 
   window.onload = initialize;
 

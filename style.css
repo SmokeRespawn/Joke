@@ -18,7 +18,7 @@ h1:hover{
   color : yellow;
 }
 
-h1:after {
+h1:after{
   content: "";
   display: block;
   height: 2px; /*epaisseur du soulignement*/
@@ -51,8 +51,9 @@ a{
 }
 
 #header h1{
-  font-size: 220%;
+  font-size: 400%;
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  z-index: 3;
 }
 
 #header h1:hover{
@@ -188,7 +189,7 @@ a{
 #liste{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width : 30%;
   list-style: none;
@@ -210,7 +211,6 @@ a{
 }
 
 #liste li::after {
- background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
   display: block;
@@ -327,7 +327,7 @@ a{
   font-style: italic;
 }
 
-.otherJoke{
+.otherJokeButton{
   margin-top: 2%;
   width: 30%;
   margin-left: auto;
@@ -341,7 +341,7 @@ a{
   transition: 0.3s;
 }
 
-.otherJoke:hover{
+.otherJokeButton:hover{
   background-color: yellow;
   border: 2px solid #080112;
   color: black;
@@ -484,7 +484,6 @@ a{
   color: yellow;
 }
 
-
 #poster{
   width: 30%;
   margin-left: auto;
@@ -538,15 +537,27 @@ a{
   right: 5%;
   height: 126px;
   width: 126px;
-  transition: 0.2s;
+  transition: 1s;
+
 }
 
 #img_svg:hover{
-  transform: scale(1.1);
+  transform: rotate(360deg);
 }
 
-#img_svg line{
-  animation: arrow 2s infinite;
+#cercle{
+  fill: none;
+  stroke: url(#Gradient);
+  animation: rotate 2s infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+
+#tete_fleche{
+  fill: url(#Gradient);
+  transform: translateY(30%);
+  animation: rotate_arrow 1.5s infinite;
 }
 
 /**********************************Animations************************************/
@@ -591,14 +602,199 @@ a{
   }
 }
 
-@keyframes arrow {
-  0{
-    height: 126px;
-  }
-  50%{
-    height: 63px;
-  }
+@keyframes rotate {
   100%{
-    height: 0px !important;
+    transform: rotate(360deg);
   }
 }
+
+@keyframes rotate_arrow {
+  100%{
+    transform: rotate(360deg);
+    opacity: 0;
+    }
+}
+
+/**********************************Responsive 1024px************************************/
+
+@media screen and (max-width: 740px) {
+
+  h1{
+    font-size: 150%;
+  }
+
+  h3{
+    font-size: 100%;
+  }
+
+/**********************************Header************************************/
+  #header{
+    height: 70vh;
+    }
+
+  #header h1{
+    font-size: 250%;
+  }
+
+  .menu_hamburger span{
+    width: 23px;
+    height: 2px;
+  }
+
+  #cross {
+     width: 23px;
+     height: 23px;
+   }
+
+   #liste li{
+     font-size: 80%;
+   }
+  /**********************************Souris + animation************************************/
+  .middle{
+    top: 60%;
+    left: 50%;
+  }
+
+  .mouse{
+    width: 70px;
+    height: 120px;
+  }
+
+  .mouse::before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    top: 20px;
+    animation: mouse 2s infinite;
+  }
+
+  @keyframes mouse {
+    0%{
+      opacity: 1;
+      top: 30px;
+    }
+    100%{
+      opacity: 0;
+      top: 100px;
+    }
+  }
+
+  /**********************************Présentation************************************/
+
+  #Presentation{
+    height: 50vh;
+    margin-top: 30%;
+   }
+
+  #Presentation h1{
+    font-size: 150%;
+  }
+
+  #Presentation p{
+    line-height: 170%;
+    font-size: 90%;
+  }
+
+  /**********************************Meilleure blague************************************/
+
+  #BestJoke{
+    height: 50vh;
+    width: 80%;
+    margin-top: 10%;
+  }
+
+  /**********************************Classe pour les blagues************************************/
+
+  .joke h4{
+    font-size: 90%;
+  }
+
+  .joke p{
+    font-size: 80%;
+    font-style: italic;
+  }
+
+  .otherJokeButton{
+    font-size: 80%;
+  }
+
+  /**********************************Différentes blagues************************************/
+
+  .programmingJoke, .darkJoke, .miscellaneousJoke{
+    height: 40vh;
+    margin-top: 15%;
+  }
+
+  /**********************************Poste ta blague************************************/
+
+  .jokeMaker{
+    margin-top: 20%;
+    padding: 5%;
+  }
+
+  .form label{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 80%;
+    width: 80%;
+  }
+
+  .form textarea{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .spanForm{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .spanForm input{
+    font-size: 80%;
+    margin-right: auto;
+  }
+
+  .spanForm label{
+    width: auto;
+  }
+
+  .spanForm label::after {
+      width: 100%;
+    }
+
+  .spanForm select{
+    font-size: 80%;
+  }
+
+  #poster{
+    width: 20%;
+  }
+
+  .galerie_style h1{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .jokeUserClass p{
+    font-size: 80%;
+  }
+
+  .jokeUserClass h5{
+    font-size: 60%;
+  }
+
+  .jokeUserClass h3{
+    font-style: italic;
+    font-size: 70%;
+  }
+
+  /**********************************Flèche************************************/
+
+  #img_svg{
+    bottom: 1%;
+    right: 5%;
+    height: 70px;
+    width: 70px;
+   }

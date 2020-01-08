@@ -10,7 +10,7 @@
   <body>
       </nav>
       <header id="header">
-        <h1>The One Man Joke</h1>
+        <h1 id="title">The One Man Joke</h1>
         <span id="cross" class="disparaitre"></span>
         <div id="menu_ham" class="menu_hamburger afficher">
           <span class="ham"></span>
@@ -49,23 +49,23 @@
       <div id="programmingJoke" class="programmingJoke" data-aos="fade-up" data-aos-duration="1500">
         <h1>Nos blagues sur la programmation</h1>
         <div class="jokesP" id="jokeP"></div>
-        <input class="otherJoke" type="button" name="change_blague" value="Une autre">
+        <input id="buttonProgrammingJoke" class="otherJokeButton" type="button" name="change_blague" value="Une autre">
       </div>
 
       <div id="darkJoke" class="darkJoke" data-aos="fade-up" data-aos-duration="1500">
         <h1>Nos blagues dark</h1>
         <div class="jokesD" id="jokeD"></div>
-        <input class="otherJoke" type="button" name="change_blague" value="Une autre">
+        <input id="buttonDarkJoke" class="otherJokeButton" type="button" name="change_blague" value="Une autre">
       </div>
 
       <div id="miscellaneousJoke" class="miscellaneousJoke" data-aos="fade-up" data-aos-duration="1500">
         <h1>Nos blagues diverses</h1>
         <div class="jokesM" id="jokeM"></div>
-        <input class="otherJoke" type="button" name="change_blague" value="Une autre">
+        <input id="buttonMJoke" class="otherJokeButton" type="button" name="change_blague" value="Une autre">
       </div>
 
       <div id="ancreJokeMaker" class="ancre"></div>
-      <div id="jokeMaker" class="jokeMaker" data-aos="fade-up" data-aos-duration="1500">
+      <div id="jokeMaker" class="jokeMaker" data-aos="fade-down" data-aos-duration="1500">
         <h1>Poste ta blague</h1>
         <form class="form" action="index.html" method="post">
           <label for="tellJoke">Raconte nous ta blague :</label>
@@ -82,35 +82,40 @@
           </span>
           <input id="poster" type="button" name="poster" value="Poster">
         </form>
-        <div id="galerie" class="galerie_style" data-aos="fade-up" data-aos-duration="1500">
+        <div id="galerie" class="galerie_style">
           <h1>Galerie de blagues des utilisateurs</h1>
+          <div id="containerJokesUsers">
+            <div class="jokesUsers"></div>
+          </div>
           <div class="jokesUsers jokeUserClass">
-            <p>Quelle est la différence entre une femme et une moto ?<br/><br/>
-                Une moto est une suzuki et une femme une suce kiki</p>
+            <p>Le "C" de IMAC....</p>
+            <h5>Diverse</h5>
+            <h3>Erwann</h3>
+          </div>
+          <div class="jokesUsers jokeUserClass">
+            <p>Qu'est ce qui fait "Oula Oula" ?
+            <br/>
+            <br/>
+            Un oiseau avec une énorme paire de couilles qui essaye de se poser !
+          </p>
             <h5>Salace</h5>
             <h3>Paul</h3>
           </div>
-          <div class="jokesUsers jokeUserClass">
-            <p>Quelle est la différence entre une femme et une moto ?<br/><br/>
-                Une moto est une suzuki et une femme une suce kiki</p>
-            <h5>Salace</h5>
-            <h3>Paul</h3>
-          </div>
-          <div class="jokesUsers"></div>
       </div>
       </div>
       <a href="#header">
         <svg  id="img_svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 126 126" style="enable-background:new 0 0 126 126;" xml:space="preserve">
-      <circle id="cercle" style="fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;" cx="63" cy="63.39" r="60.25"/>
-      <g>
-      	<g>
-      		<line style="fill:none;stroke:#FFFFFF;stroke-width:7;stroke-miterlimit:10;" x1="63" y1="28.2" x2="63" y2="106.18"/>
-      		<g>
-      			<polygon style="fill:#FFFFFF;" points="34.37,51.39 39.5,56.17 62.99,30.88 86.5,56.17 91.62,51.39 62.99,20.61 			"/>
-      		</g>
-      	</g>
-      </g>
-      </svg></a>
+        <defs>
+          <linearGradient id="Gradient">
+            <stop offset="0%" stop-color="#ff4e50"/>
+            <stop offset="100%" stop-color="#f9d423"/>
+          </linearGradient>
+        </defs>
+      <circle id="cercle" style="stroke-width:7;stroke-miterlimit:10;" cx="63" cy="63.39" r="60.25"/>
+      	<g id="tete_fleche">
+      		<polygon  points="34.37,51.39 39.5,56.17 62.99,30.88 86.5,56.17 91.62,51.39 62.99,20.61 			"/>
+        </g>
+        </svg></a>
   </body>
   <script src="script.js"></script>
 </html>
