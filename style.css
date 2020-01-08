@@ -94,6 +94,10 @@ a{
   left: 0;
 }
 
+#header2{
+  display: none;
+}
+
 
 /**********************************MENU HAMBURGER************************************/
 .menu_hamburger{
@@ -573,6 +577,16 @@ a{
   animation-fill-mode: both;
 }
 
+.animation_slide2{
+  animation:slide 0.2s cubic-bezier(0.17,0.67,0.83,0.67);
+  animation-fill-mode: both;
+}
+
+.animation_slide_reverse2{
+  animation:slide_reverse 0.2s cubic-bezier(0.17,0.67,0.83,0.67);
+  animation-fill-mode: both;
+}
+
 @keyframes slide {
   0%{
     transform: translateX(+100%);
@@ -615,7 +629,93 @@ a{
     }
 }
 
-/**********************************Responsive 1024px************************************/
+/**********************************Responsive 1066px************************************/
+
+@media screen and (max-width: 1066px) {
+  #img_svg{
+    bottom: 1%;
+    right: 3%;
+    height: 100px;
+    width: 100px;
+   }
+
+
+   /**********************************Responsive 1066px************************************/
+
+   @media screen and (max-width: 850px) {
+     #img_svg{
+       bottom: 0,5%;
+       right: 2%;
+       height: 80px;
+       width: 80px;
+      }
+
+      /**********************************Poste ta blague************************************/
+
+      .jokeMaker{
+        margin-top: 20%;
+        padding: 5%;
+      }
+
+      .form label{
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 80%;
+        width: 80%;
+      }
+
+      .form textarea{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .spanForm{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .spanForm input{
+        font-size: 80%;
+        margin-right: auto;
+      }
+
+      .spanForm label{
+        width: auto;
+      }
+
+      .spanForm label::after {
+          width: 100%;
+        }
+
+      .spanForm select{
+        font-size: 80%;
+      }
+
+      #poster{
+        width: 20%;
+      }
+
+      .galerie_style h1{
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .jokeUserClass p{
+        font-size: 80%;
+      }
+
+      .jokeUserClass h5{
+        font-size: 60%;
+      }
+
+      .jokeUserClass h3{
+        font-style: italic;
+        font-size: 70%;
+      }
+
+/**********************************Responsive 740px************************************/
 
 @media screen and (max-width: 740px) {
 
@@ -798,3 +898,117 @@ a{
     height: 70px;
     width: 70px;
    }
+ }
+
+ /**********************************Responsive 480px************************************/
+
+ @media screen and (max-width: 480px) {
+
+#header{
+  height: 80vh;
+}
+
+#header h1{
+  font-size: 150%;
+}
+
+#Presentation p{
+  font-size: 60%;
+}
+
+/**********************************Classe pour les blagues************************************/
+
+.joke h4{
+  font-size: 80%;
+}
+
+.joke p{
+  font-size: 70%;
+  font-style: italic;
+}
+
+.otherJokeButton{
+  font-size: 70%;
+}
+
+/**********************************Différentes blagues************************************/
+
+.programmingJoke, .darkJoke, .miscellaneousJoke{
+  height: 40vh;
+  margin-top: 15%;
+}
+
+/**********************************Poste ta blague************************************/
+
+.jokeMaker{
+  margin-top: 20%;
+  padding: 5%;
+}
+
+.form label{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 80%;
+  width: 70%;
+}
+
+.form textarea{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 80%;
+}
+
+.spanForm{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.spanForm input{
+  font-size: 70%;
+  margin-right: auto;
+  width: 30%;
+}
+
+.spanForm label{
+  width: 30%;
+}
+
+.spanForm label::after {
+    width: 60%;
+  }
+
+.spanForm select{
+  font-size: 70%;
+  width: 30%;
+}
+
+/**********************************Flèche************************************/
+
+#img_svg{
+  bottom: 0%;
+  right: 3%;
+  height: 40px;
+  width: 40px;
+ }
+}
+
+/**********************************Responsive 380px************************************/
+
+@media screen and (max-width: 380px) {
+  #img_svg{
+    bottom: 0%;
+    right: 2%;
+    height: 20px;
+    width: 20px;
+   }
+
+   #liste li{
+     font-size: 50%;
+   }
+
+   .spanForm label::after {
+       width: 70%;
+     }
+}
